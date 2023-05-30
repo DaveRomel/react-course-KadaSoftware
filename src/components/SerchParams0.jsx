@@ -1,13 +1,8 @@
 // Dependencies
-//import React from 'react';
 import { useState, useEffect } from 'react';
-
+//import React from 'react';
 // Components
-//import { Pet } from './Pet'
-import { Results } from './Results';
 
-// Custom Hook
-import {useBreedList} from '../hooks/useBreedList';
 
 // Constants
 const Animals = ['bird', 'cat', 'dog', 'rabbit', 'reptile'];
@@ -18,33 +13,14 @@ export const SerchParams = () => {
   const [animal, setAnimal] = useState('');
   const [breed, setBreed] = useState('');
   const [pets, setPets] = useState([]);
-  //const breeds = [];
-  //const breeds = ['croquetas', 'semillas', 'carne'];
-  const [breeds] = useBreedList(animal);
+  const breeds = ['croquetas', 'semillas', 'carne'];
 
-  useEffect(() => {
-    requestPets();
-  }, []); // eslint-disable-line
+  async function requestPet {
 
-    async function requestPets() {
-      const res = await fetch (
-        `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
-      );
-
-      const json = await res.json();
-
-      setPets(json.pets);
-    }
-
-  //console.log('perts: ', pets);
-
+  }
   return (
     <div className="search-params">
-      <form onSubmit={ (e) => {
-        e.preventDefault();
-        requestPets();
-      }}
-    >
+      <form action="">
 
         <label htmlFor="location">
           Location
@@ -61,7 +37,7 @@ export const SerchParams = () => {
           <select
             id="animal"
             value={animal}
-            onChange={ (e) => {setAnimal(e.target.value);
+            onChange={(e) => {setAnimal(e.target.value);
             setBreed('');
             }}
           >
@@ -92,10 +68,8 @@ export const SerchParams = () => {
             ))}
           </select>
         </label>
-        <button type="submit">Submit</button>
+
       </form>
-      <Results pets={pets} />
     </div>
   );
-
 };
