@@ -3,12 +3,12 @@ import {createRoot} from 'react-dom/client';
 
 //Components
 //import Pet from './components/Pet';
-import { SerchParams } from './components/SerchParams.jsx';
+import { SearchParams } from './components/SearchParams.jsx';
 
 const App = () => (
 		<div>
 			<h1>Adopt Me!</h1>
-			<SerchParams />
+			<SearchParams />
 		</div>
 	);
 
